@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'PostGrotesk';
+    src: local('PostGrotesk'), url('fonts/PostGrotesk-Medium.eot');
+    src: local('PostGrotesk'), url('fonts/PostGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+        local('PostGrotesk'), url('fonts/PostGrotesk-Medium.woff2') format('woff2'),
+        local('PostGrotesk'), url('fonts/PostGrotesk-Medium.woff') format('woff'),
+        local('PostGrotesk'), url('fonts/PostGrotesk-Medium.ttf') format('truetype'),
+        local('PostGrotesk'), url('fonts/PostGrotesk-Medium.svg#PostGrotesk-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PostGroteskLight';
+    src: local('PostGroteskLight'), url('fonts/PostGrotesk-Light.eot');
+    src: local('PostGroteskLight'), url('fonts/PostGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+        local('PostGroteskLight'), url('fonts/PostGrotesk-Light.woff2') format('woff2'),
+        local('PostGroteskLight'), url('fonts/PostGrotesk-Light.woff') format('woff'),
+        local('PostGroteskLight'), url('fonts/PostGrotesk-Light.ttf') format('truetype'),
+        local('PostGroteskLight'), url('fonts/PostGrotesk-Light.svg#PostGrotesk-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'PostGrotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 100%;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'PostGrotesk', sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+body,
+p {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
