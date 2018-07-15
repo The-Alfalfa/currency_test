@@ -102,6 +102,5 @@
     "babel-plugin-styled-components": "^1.5.1",
     "font-loader": "^0.1.2",
     "gh-pages": "^1.2.0"
-  },
-  "homepage": "https://The-Alfalfa.github.io/currency_test"
+  }
 }
