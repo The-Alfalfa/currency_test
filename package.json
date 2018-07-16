@@ -96,7 +96,8 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "parser": "babel-eslint"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.5.1",

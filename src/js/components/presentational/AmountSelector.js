@@ -46,7 +46,9 @@ class AmountSelector extends Component {
 
 AmountSelector.propTypes = {
     currency: PropTypes.string.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    amount: PropTypes.any.isRequired,
+    sender: PropTypes.bool
   };
   
 

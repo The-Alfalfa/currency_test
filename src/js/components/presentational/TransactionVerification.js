@@ -93,6 +93,7 @@ const Actions = styled(FlexContainer)`
         font-size: 12px;
         border: 0;
         padding: 0;
+        cursor: pointer;
     }
 `
 
@@ -103,6 +104,12 @@ const VerificationFooter = styled.div`
 
     ${Button} {
         padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #64b5f6;
         font-size: 12px;
     }
 `
@@ -117,8 +124,20 @@ const number = '872251177';
 class TransactionVerification extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            emptyInputs : 5,
+            verified: false
+        };
         this.handleKeyUp = this.handleKeyUp.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    checkVerification () {
+       if(this.state.emptyInputs === 0){
+           this.setState({ verified: true })
+       }else{
+        this.setState({ verified: false })
+       }
     }
 
     handleKeyUp (e) {
@@ -126,8 +145,17 @@ class TransactionVerification extends Component {
             if(e.target.nextSibling !== null){
                 e.target.nextSibling.focus();
             }
-            
         }
+        if (e.target.value !== '' && e.target.value !== ' '){
+            this.setState({
+                emptyInputs : this.state.emptyInputs - 1
+            });
+        }else{
+            this.setState({
+                emptyInputs : this.state.emptyInputs + 1
+            });
+        }
+        this.checkVerification();
     }
 
     handleCloseModal () {
@@ -166,9 +194,14 @@ class TransactionVerification extends Component {
                     </FlexContainer>
                 </VerificationBody>
                 <VerificationFooter>
-                    <FlexContainer spaced>
-                        <Button as="primary" component="button" margin="0 15px 0 0" disabled>Verify Identity</Button>
-                        <Button onClick={this.handleCloseModal} as="secondary" component="button">Back</Button>
+                    <FlexContainer spaced vAlign>
+                        <div>
+                            <Button as="primary" component="button" margin="0 15px 0 0" disabled={!this.state.verified}>Verify Identity</Button>
+                            <Button onClick={this.handleCloseModal} as="secondary" component="button">Back</Button>
+                        </div>
+                        <div>
+                            <a href="">I can't access this mobile device</a>
+                        </div>
                     </FlexContainer>
                 </VerificationFooter>
             </div>

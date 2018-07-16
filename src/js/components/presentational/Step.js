@@ -11,6 +11,7 @@ const Step = (props) => (
 
 Step.propTypes = {
   title: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   className: PropTypes.string
 };
 
@@ -18,10 +19,14 @@ export default styled(Step)`
   width: 33.334%;
   color: #b0bec5;
   font-size: 14px;
-  padding-left: 44px;
+  padding-left: 2vw;
   box-sizing: border-box;
   line-height: 21px;
   padding-bottom: 12px;
+
+  p {
+    padding-right: 5px;
+  }
 
   p:first-child {
     font-size: 12px;
@@ -41,5 +46,9 @@ export default styled(Step)`
       bottom: -4px;
       left: 0;
     }
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-left: 44px;
   }
 `

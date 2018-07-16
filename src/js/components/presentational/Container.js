@@ -9,12 +9,14 @@ const Container = (props) => (
 )
 
 Container.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
+  flex: PropTypes.bool
 }
 export default styled(Container)`
   max-width: 1024px;
   margin: 0 auto;
   height: 100%;
   width: 100%;
+  padding: 0 20px;
   ${props => props.flex && `display: flex;`}
 `

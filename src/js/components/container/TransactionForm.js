@@ -46,7 +46,7 @@ class TransactionForm extends React.Component {
                 <TransactionNav />
                 <TransactionHeader step="1" />
                 <AmountSelector className={this.isActive() && 'active'} sender currency="EUR" amount={this.state.EUR} />
-                <AmountSelector className={!this.isActive() && 'active'} receiver currency="GBP" amount={this.calcConversion(this.state.EUR)} />
+                <AmountSelector className={!this.isActive() && 'active'} currency="GBP" amount={this.calcConversion(this.state.EUR)} />
                 <Button onClick={this.handleButtonClick} as="primary" component="button" margin="36px 0 0">Next</Button>
                 {this.state.popup !== false &&
                     <Modal isOpened={this.state.popup !== false}>
