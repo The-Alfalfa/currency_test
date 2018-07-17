@@ -1,7 +1,9 @@
+// Import needed libraries and components
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import PropTypes from "prop-types";
 
+// Define currencies with flag source file and currency symbol
 const currency = {
     "EUR": {
         src: require('../../../assets/eu_flag.jpg'),
@@ -19,11 +21,12 @@ class AmountSelector extends Component {
         this.splitAmount = this.splitAmount.bind(this);
     }
 
+    // Split integer and decimals to create two different elements for different styling
     splitAmount(amount) {
-        var integer = Math.floor(amount);
-        var decimal = amount - integer;
-        decimal = String(decimal.toFixed(2));
-        decimal = decimal.slice(decimal.indexOf('.'));
+        var integer = Math.floor(amount); // Get integer
+        var decimal = amount - integer; // Get decimals
+        decimal = String(decimal.toFixed(2)); // Just 2 decimals
+        decimal = decimal.slice(decimal.indexOf('.')); // Remove '0.'
         return [integer, decimal];
     }
 

@@ -1,6 +1,8 @@
+// Import needed libraries and components
 import styled from 'styled-components';
 import PropTypes from "prop-types";
 
+// Specify column sizes (can be used to create an own grid system like Boostrap)
 const colSize = {
     '5': 41.6666666,
     '7': 58.3333333
@@ -20,6 +22,17 @@ const Col = styled.div`
         top: 66px;
         transform: translate3d(100%,0,0);
         transition: transform 0.3s ease;
+
+        &:after {
+            content: '';
+            background: #fbfbfb;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 50vw;
+            height: 100vh;
+            z-index: -1;
+        }
     `}
 
     &:first-child {

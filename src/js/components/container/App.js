@@ -1,3 +1,4 @@
+// Import needed libraries and components
 import React from "react";
 import Header from "../presentational/Header";
 import TransactionForm from "./TransactionForm";
@@ -32,11 +33,12 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            summaryOpened: false
+            summaryOpened: false // State used to open/close the responsive sidebar
         }
         this.handleClick = this.handleClick.bind(this);
     }
 
+    // Handel click on mobile sidebar
     handleClick () {
         this.setState({
             summaryOpened : !this.state.summaryOpened

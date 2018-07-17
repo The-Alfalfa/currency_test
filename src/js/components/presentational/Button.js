@@ -1,7 +1,13 @@
+// Import needed libraries and components
 import React, {Component} from 'react';
 import styled, {css} from 'styled-components';
 import PropTypes from "prop-types";
 
+// Create component that can be <a> or <button> tag using props.
+// Can be disabled.
+// Margins can be added.
+// Target for <a> tag can be specified. 
+// Must contain theming
 class Button extends Component {
   static propTypes = {
     className: PropTypes.string,

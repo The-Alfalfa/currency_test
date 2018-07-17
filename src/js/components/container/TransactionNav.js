@@ -1,7 +1,9 @@
+// Import needed libraries and components
 import React from 'react';
 import styled from 'styled-components';
 import Step from '../presentational/Step';
 
+// Titles for the transaction steps
 const transactionSteps = [
     'Transaction info',
     'Recipient info',
@@ -9,11 +11,11 @@ const transactionSteps = [
  ];
 
 class TransactionNav extends React.Component {
-
+    // Function that can be used to change the active element in the steps navigation (implemented statically)
     isActive(item) {
         return item === 0 ? "active" : "";
     }
-
+    
     render() {
         return (
             <div className={this.props.className}>

@@ -1,6 +1,8 @@
+// Import needed libraries and components
 import React from 'react';
 import styled from 'styled-components';
 
+// Using the step number of the form navigation, the text can be changed here
 const transactionHeads = {
     '1': {
         title: `Let's set up your transaction!`,

@@ -1,10 +1,11 @@
+// Import needed libraries and components
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Portal } from 'react-portal'
+import { Portal } from 'react-portal' // External library with 'modal' functionalities
 
 export default class Modal extends Component {
-  static propTypes = {
+  static propTypes = {  // Properties for Portal
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.element),
       PropTypes.element
@@ -17,12 +18,11 @@ export default class Modal extends Component {
     full: PropTypes.bool
   }
 
-  handleCloseClick = () => {
-    this.props.onClose && this.props.onClose()
-  }
+  // Close Portal
   handlePortalClose = () => {
     this.props.onClose && this.props.onClose()
   }
+
   render () {
     const ModalWindow = styled.div`
       width: 580px;

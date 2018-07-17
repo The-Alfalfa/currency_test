@@ -1,7 +1,9 @@
+// Import needed libraries and components
 import styled from 'styled-components';
 import PropTypes from "prop-types";
 import Col from './Col';
 
+// Create a reusable flex-box div
 const FlexContainer = styled.div`
     width: 100%;
     display: flex;

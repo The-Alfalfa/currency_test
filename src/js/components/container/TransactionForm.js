@@ -1,5 +1,5 @@
+// Import needed libraries and components
 import React from 'react';
-import styled from 'styled-components';
 import TransactionNav from '../container/TransactionNav';
 import TransactionHeader from '../presentational/TransactionHeader';
 import AmountSelector from '../presentational/AmountSelector';
@@ -19,23 +19,27 @@ class TransactionForm extends React.Component {
         this.isActive = this.isActive.bind(this);
     }
 
+    // Change state to show the modal clicking on 'Next'
     handleButtonClick = (e) => {
         e.preventDefault();
         this.setState({
-            popup: this.state === true ? false : true
+            popup: true
         })
     }
 
+    // Change state to show the modal clicking on 'Back'
     handlePopupClose = () => {
         this.setState({
             popup: false
         })
     }
 
+    // Automatically calculate pounds amount from euros. Could be implemented if the user can change the amount using an imput to auto-calculate de conversion
     calcConversion (amount) {
-        return (parseInt(amount,10) * 0.85772) + 2.50;
+        return (parseInt(amount,10) * 0.85772) + 2.50; // Conversion rate + fee
     }
 
+    // Change active state of conversion options (implemented statically)
     isActive () {
         return true;
     }
@@ -58,6 +62,4 @@ class TransactionForm extends React.Component {
     }
 }
 
-export default styled(TransactionForm)`
-
-`
+export default TransactionForm

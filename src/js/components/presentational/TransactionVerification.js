@@ -1,3 +1,4 @@
+// Import needed images, libraries and components
 import React, {Component} from "react";
 import styled from "styled-components";
 import FlexContainer from "./FlexContainer";
@@ -166,46 +167,64 @@ const InputsContainer = styled(FlexContainer)`
     }
 `
 
-const prefix = '+353';
-const number = '872251177';
+const prefix = '+353'; // Phone prefix - Could be changed dynamically
+const number = '872251177'; // Phone number - Could be changed dynamically
+var emptyPressed = false; // Flag to control when the backspace button is pressed
 
 class TransactionVerification extends Component {
     constructor(props){
         super(props);
         this.state = {
-            emptyInputs : 5,
-            verified: false
+            emptyInputs : 5, // Number of inputs not filled
+            verified: false // State used to enable/disable the 'Verify' button
         };
         this.handleKeyUp = this.handleKeyUp.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
+    // Verifies the number of remaining inputs
     checkVerification () {
-       if(this.state.emptyInputs === 0){
+
+        if(this.state.emptyInputs < 0) { // Controls that the state is minimum 0
+            this.setState({
+                emptyInputs :0
+            });
+        }
+
+        // If all inputs are filled, enable 'Verify' button, otherwise disable it
+        if(this.state.emptyInputs === 0){
            this.setState({ verified: true })
-       }else{
-        this.setState({ verified: false })
-       }
+        }else{
+            this.setState({ verified: false })
+        }
     }
 
+    // Function called every time one input changes
     handleKeyUp (e) {
+
+        // If there is a next input, auto-focus it
         if (e.target.value.length === e.target.maxLength) {
             if(e.target.nextSibling !== null){
                 e.target.nextSibling.focus();
             }
         }
-        if (e.target.value !== '' && e.target.value !== ' '){
+
+        if (e.keyCode !== 8 && this.state.emptyInputs >= 0){ // If an empty input is filled, update the number of emptyInputs
+            emptyPressed = true;
             this.setState({
                 emptyInputs : this.state.emptyInputs - 1
             });
-        }else{
+            this.checkVerification(); // Verify after state update
+        }else if(e.keyCode === 8 && emptyPressed){ // If an empty input is removed, update the number of emptyInputs
+            emptyPressed = false;
             this.setState({
                 emptyInputs : this.state.emptyInputs + 1
             });
+            this.checkVerification(); // Verify after state update
         }
-        this.checkVerification();
     }
 
+    // Send prop to parent and close the modal
     handleCloseModal () {
         this.props.onClose();
     }

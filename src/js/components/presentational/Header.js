@@ -1,3 +1,4 @@
+// Import needed logo, libraries and components
 import React from "react";
 import styled from "styled-components";
 import logo from "../../../assets/CF_logo_RGB_NEG.svg";
