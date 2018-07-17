@@ -14,14 +14,16 @@ const Col = styled.div`
 
     ${props => props.willFullWidth && ` width: 100%; `}
     ${props => props.right && `
-        height: calc(100vh - 66px);
+        height: 100vh;
         border-left: 1px solid #e0e0e0;
         background: #fbfbfb;
         position: fixed;
         right: 0;
-        top: 66px;
+        top: 0;
         transform: translate3d(100%,0,0);
         transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
 
         &:after {
             content: '';
@@ -35,6 +37,11 @@ const Col = styled.div`
         }
     `}
 
+    ${props => props.fixed && `
+        height: 100vh;
+        top: 0;
+    `}
+
     &:first-child {
         padding-left: 0;
     }
@@ -46,6 +53,7 @@ const Col = styled.div`
     }
 
     @media screen and (min-width: 767px){
+        display: block;
         width: ${props => props.md ? colSize[props.md] : `90` }%;
 
         ${props => props.right && `

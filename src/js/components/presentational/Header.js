@@ -20,6 +20,8 @@ export default styled(Header)`
   background: #32323c;
   width: 100%;
   padding: 0 12px;
+  position: relative;
+  z-index: 1;
 
   img {
     height: 100%;

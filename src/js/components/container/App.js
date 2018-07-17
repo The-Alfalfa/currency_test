@@ -14,7 +14,7 @@ const MobileOpener = styled.div`
     writing-mode: vertical-lr;
     position: absolute;
     left: 0;
-    height: calc(100vh - 66px);
+    height: 100vh;
     top: 0;
     text-align: center;
     transform: rotate3d(0,0,1,180deg) translate3d(30px,0,0);
