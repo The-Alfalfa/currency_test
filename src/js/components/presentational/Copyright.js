@@ -14,9 +14,16 @@ const Left = styled.div`
 
 const Right = styled.div`
     font-size: 12px;
+    width: 100%;
+    margin-top: 10px;
 
     a:first-child {
         margin-right: 20px;
+    }
+
+    @media screen and (min-width: 400px) {
+        width: auto;
+        margin-top: 0;
     }
 `
 

@@ -22,6 +22,16 @@ const Col = styled.div`
         transition: transform 0.3s ease;
     `}
 
+    &:first-child {
+        padding-left: 0;
+    }
+
+    ${props => props.opened === true && `transform: translate3d(28px,0,0);`}
+
+    @media screen and (min-width: 400px) {
+        padding: 20px;
+    }
+
     @media screen and (min-width: 767px){
         width: ${props => props.md ? colSize[props.md] : `90` }%;
 

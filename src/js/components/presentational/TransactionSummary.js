@@ -84,5 +84,6 @@ const TransactionSummary = (props) => (
 
 export default styled(TransactionSummary)`
    max-width: 310px;
+   width: calc(100% - 20px);
    border: 1px solid #e0e0e0;
 `

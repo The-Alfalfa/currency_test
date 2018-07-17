@@ -38,8 +38,11 @@ const VerificationHead = styled.div`
 `
 
 const VerificationBody = styled.div`
-    padding: 55px 93px;
+    padding: 55px 20px;
     color: #3c454b;
+    max-width: 420px;
+    margin: auto;
+    text-align: center;
 
     p {
         display: inline-block;
@@ -57,11 +60,27 @@ const VerificationBody = styled.div`
         background: #fbfcfc;
         border-left: 0;
     }
+
+    .phone {
+        display: block;
+        margin: 10px auto;
+    }
+
+    @media screen and (min-width: 767px) {
+        padding: 55px 93px;
+        max-width: 100%;
+        text-align: left;
+
+        .phone {
+            display: inline-block;
+            margin: 0;
+        }
+    }
 `
 
 const Input = styled.input`
-    height: 54px;
-    width: 54px;
+    height: 35px;
+    width: 35px;
     border-radius: 4px;
     background: #ffffff;
     border: 1px solid #e0e0e0;
@@ -69,19 +88,23 @@ const Input = styled.input`
     font-size: 28px;
     color: #999999;
     text-align: center;
+    margin-right: 5px;
 
     &:last-child {
         margin-right: 0;
     }
+
+    @media screen and (min-width: 500px) {
+        height: 54px;
+        width: 54px;
+    }
 `
 
 const Actions = styled(FlexContainer)`
-    width: 50%;
+    width: 100%;
     align-items: center;
-
-    &:last-child {
-        justify-content: flex-end;
-    }
+    text-align: center;
+    justify-content: center;
 
     img {
         height: 14px;
@@ -95,12 +118,26 @@ const Actions = styled(FlexContainer)`
         padding: 0;
         cursor: pointer;
     }
+
+    @media screen and (min-width: 500px) {
+        width: 50%;
+        justify-content: flex-start;
+
+        &:last-child {
+            justify-content: flex-end;
+        }
+    }
 `
 
 const VerificationFooter = styled.div`
     border-top: 2px solid #e0e0e0;
     padding: 25px;
     box-sizing: border-box;
+
+    .willFullWidth {
+        width: 100%;
+        margin-top: 10px;
+    }
 
     ${Button} {
         padding: 10px 15px;
@@ -112,10 +149,21 @@ const VerificationFooter = styled.div`
         color: #64b5f6;
         font-size: 12px;
     }
+
+    @media screen and (min-width: 500px) {
+        .willFullWidth {
+            width: auto;
+            margin-top: 0;
+        }
+    }
 `
 
 const InputsContainer = styled(FlexContainer)`
     margin: 30px 0 15px;
+
+    @media screen and (max-width: 500px) {
+        justify-content: center;
+    }
 `
 
 const prefix = '+353';
@@ -166,14 +214,14 @@ class TransactionVerification extends Component {
         return(
             <div className={this.props.className}>
                 <VerificationHead>
-                    <FlexContainer>
+                    <FlexContainer alignment="start">
                         <img src={padlock} alt="padlock" />
                         <p>Identity verification required</p>
                     </FlexContainer>
                     <p>For your security, we ocassionally require you to verify your identity by entering a code sent to your mobile device.</p>
                 </VerificationHead>
                 <VerificationBody>
-                    Enter the code sent via SMS to <p>{prefix}</p><p>{number}</p>
+                    Enter the code sent via SMS to <div className="phone"><p>{prefix}</p><p>{number}</p></div>
                     <InputsContainer spaced>
                         <Input autoFocus className="input" type="text" name="code-1" maxLength="1" onKeyUp={this.handleKeyUp} />
                         <Input className="input" type="text" name="code-2" maxLength="1" onKeyUp={this.handleKeyUp} />
@@ -183,7 +231,7 @@ class TransactionVerification extends Component {
                         <Input className="input" type="text" name="code-6" maxLength="1" onKeyUp={this.handleKeyUp} />
                     </InputsContainer>
                     <FlexContainer>
-                        <Actions>
+                        <Actions alignment="start">
                             <img src={refresh} alt="refresh" />
                             <p>Receive a new code</p>
                         </Actions>
@@ -199,7 +247,7 @@ class TransactionVerification extends Component {
                             <Button as="primary" component="button" margin="0 15px 0 0" disabled={!this.state.verified}>Verify Identity</Button>
                             <Button onClick={this.handleCloseModal} as="secondary" component="button">Back</Button>
                         </div>
-                        <div>
+                        <div className="willFullWidth">
                             <a href="">I can't access this mobile device</a>
                         </div>
                     </FlexContainer>

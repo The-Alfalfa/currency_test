@@ -53,7 +53,7 @@ AmountSelector.propTypes = {
   
 
 export default styled(AmountSelector)`
-    padding: 24px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,10 +73,6 @@ export default styled(AmountSelector)`
         color: #212121;
         font-size: 28px;
 
-        p {
-            margin-bottom: -10px;
-        }
-
         p:first-child {
             font-size: 14px;
             color: #9e9e9e;
@@ -89,8 +85,9 @@ export default styled(AmountSelector)`
     }
 
     .flag {
-        width: 90px;
-        padding: 13px;
+        padding: 8px;
+        font-size: 12px;
+        width: 77px;
         border: solid 1px #e0e0e0;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
@@ -110,6 +107,22 @@ export default styled(AmountSelector)`
 
         .amount p:first-child {
             color: #6ec0e6;
+        }
+    }
+
+    @media screen and (min-width: 400px) {
+        padding: 24px;
+
+        .flag {
+            padding: 13px;
+            font-size: 16px;
+            width: 90px;
+        }
+
+        .amount {
+            p {
+                margin-bottom: -10px;
+            }
         }
     }
 `
